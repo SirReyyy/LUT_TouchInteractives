@@ -19,11 +19,12 @@ public class HandColorOverlayer : MonoBehaviour
 
 	[Tooltip("Game object used to overlay the right hand.")]
 	public Transform rightHandOverlay;
-	
-	//public float smoothFactor = 10f;
 
-	// reference to KinectManager
-	private KinectManager manager;
+
+    //public float smoothFactor = 10f;
+
+    // reference to KinectManager
+    private KinectManager manager;
 	
 
 	void Update () 
@@ -63,7 +64,7 @@ public class HandColorOverlayer : MonoBehaviour
 
 				OverlayJoint(userId, (int)KinectInterop.JointType.HandLeft, leftHandOverlay, backgroundRect);
 				OverlayJoint(userId, (int)KinectInterop.JointType.HandRight, rightHandOverlay, backgroundRect);
-			}
+            }
 			
 		}
 	}

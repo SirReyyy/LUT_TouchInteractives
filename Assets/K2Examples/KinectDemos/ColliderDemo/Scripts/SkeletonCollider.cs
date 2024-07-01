@@ -105,6 +105,8 @@ public class SkeletonCollider : MonoBehaviour
 								joints[i].SetActive(true);
 								joints[i].transform.position = posJoint;
 
+
+
 //								Quaternion rotJoint = manager.GetJointOrientation(userId, joint, false);
 //								rotJoint = initialRotation * rotJoint;
 //								joints[i].transform.rotation = rotJoint;

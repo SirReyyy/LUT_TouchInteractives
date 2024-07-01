@@ -6,19 +6,17 @@ public class PoleTrigger : MonoBehaviour
     public float targetZPosition = 5.0f; // Target z position on trigger
     public float lerpSpeed = 2.0f; // Speed of lerp
     public Material[] materialsList; // List of materials for random color change
-
+    
     private bool isTriggered = false;
     private Vector3 startPosition;
     private Vector3 endPosition;
     private Renderer poleRenderer;
-    private Material originalMaterial;
 
-    void Start()
+    void Awake()
     {
         startPosition = new Vector3(transform.position.x, transform.position.y, zPosition);
         endPosition = new Vector3(transform.position.x, transform.position.y, targetZPosition);
         poleRenderer = GetComponent<Renderer>();
-        originalMaterial = poleRenderer.material; // Store the original material
     }
 
     void Update()
@@ -39,12 +37,12 @@ public class PoleTrigger : MonoBehaviour
     {
         isTriggered = true;
         ChangeColor();
+        
     }
 
     void OnTriggerExit(Collider other)
     {
         isTriggered = false;
-        // RevertColor();
     }
 
     void ChangeColor()
@@ -54,10 +52,5 @@ public class PoleTrigger : MonoBehaviour
             Material randomMaterial = materialsList[Random.Range(0, materialsList.Length)];
             poleRenderer.material = randomMaterial;
         }
-    }
-
-    void RevertColor()
-    {
-        poleRenderer.material = originalMaterial;
     }
 }
