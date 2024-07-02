@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 58443035}
   - component: {fileID: 58443037}
   - component: {fileID: 58443038}
+  - component: {fileID: 58443039}
   m_Layer: 0
   m_Name: KinectController
   m_TagString: Untagged
@@ -229,6 +230,18 @@ MonoBehaviour:
   linePrefab: {fileID: 4832653595829004894, guid: 4f5f560a00656a146b0c4506015a0376, type: 3}
   kinectCamera: {fileID: 999714150}
   scaleFactors: {x: 1, y: 1, z: 1}
+--- !u!114 &58443039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58443033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b976a1901bb5d478901026c07729cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &127082825
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 887490492}
   - component: {fileID: 887490493}
+  - component: {fileID: 887490494}
   m_Layer: 0
   m_Name: PoleHolder
   m_TagString: Untagged
@@ -639,6 +653,19 @@ MonoBehaviour:
   prefab: {fileID: 72086745647785617, guid: 5121cd0a8a814d54a987a4e285319614, type: 3}
   rows: 45
   columns: 65
+--- !u!114 &887490494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887490491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a81393b849d7d40b292e0e71cc5b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 0
 --- !u!1 &999714146
 GameObject:
   m_ObjectHideFlags: 0

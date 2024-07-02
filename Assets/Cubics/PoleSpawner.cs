@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PoleSpawner : MonoBehaviour
 {
+    private PoleGestureListener poleGestureListener;
+    private bool isReseting = false;
+
     public GameObject prefab; // Prefab to spawn
     public int rows, columns; // Number of columns
     private float maxX = 2.2f, minX = -2.2f;
@@ -9,11 +12,29 @@ public class PoleSpawner : MonoBehaviour
 
     void Start()
     {
+        poleGestureListener = PoleGestureListener.Instance;
+
         SpawnPrefabs();
     }
 
     void Update()
     {
+        if (!poleGestureListener)
+            return;
+
+        if(!isReseting) {
+            if(poleGestureListener)
+            {
+                if(poleGestureListener.IsSwipeLeft()) {
+                    DeleteAllChildObjects();
+                    SpawnPrefabs();
+                } else if(poleGestureListener.IsSwipeRight()) {
+                    DeleteAllChildObjects();
+                    SpawnPrefabs();
+                }
+            }
+        }
+
         if(Input.GetKeyDown(KeyCode.Space))
         {
             DeleteAllChildObjects();
@@ -38,9 +59,13 @@ public class PoleSpawner : MonoBehaviour
                 newPrefab.transform.SetParent(transform);
             }
         }
+
+        isReseting = false;
     }
 
     public void DeleteAllChildObjects() {
+        isReseting = true;
+
         if(transform.childCount != 0) {
             foreach (Transform child in transform) {
                 Destroy(child.gameObject);
