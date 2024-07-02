@@ -12,6 +12,15 @@ public class PoleSpawner : MonoBehaviour
         SpawnPrefabs();
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            DeleteAllChildObjects();
+            SpawnPrefabs();
+        }
+    }
+
     void SpawnPrefabs()
     {
         float xSpacing = (maxX - minX) / (columns - 1);
@@ -27,6 +36,14 @@ public class PoleSpawner : MonoBehaviour
 
                 GameObject newPrefab = Instantiate(prefab, spawnPosition, Quaternion.identity);
                 newPrefab.transform.SetParent(transform);
+            }
+        }
+    }
+
+    public void DeleteAllChildObjects() {
+        if(transform.childCount != 0) {
+            foreach (Transform child in transform) {
+                Destroy(child.gameObject);
             }
         }
     }
